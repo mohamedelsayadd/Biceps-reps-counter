@@ -56,6 +56,6 @@ Make sure your input video is properly loaded by updating the file path if neces
 
 ## Video Demo
 
-![Biceps Reps Counter](path_to_your_gif.gif)
+![Biceps Reps Counter](https://github.com/mohamedelsayadd/Biceps-reps-counter/blob/main/rusult.gif)
 
 
