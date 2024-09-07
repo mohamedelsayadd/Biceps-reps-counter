@@ -1,60 +1,60 @@
 # Biceps Reps Counter using Computer Vision
 
-This project is a **Biceps Reps Counter** built using **OpenCV**, **Mediapipe**, and **NumPy**. It uses pose detection to monitor body movements during biceps exercises and counts the number of repetitions performed by the user.
+This project is a Python-based **Biceps Reps Counter** that utilizes **OpenCV**, **Mediapipe**, and **NumPy**. It tracks body movements during biceps exercises by detecting key landmarks on the body, calculating arm angles, and counting the repetitions automatically.
 
-## Features
-- Detect body pose using Mediapipe
-- Track the right shoulder, elbow, and wrist for biceps exercises
-- Calculate the angle between joints to detect the exercise stage (Up/Down)
-- Automatically count and display the number of repetitions performed
-- Display landmarks and connections of the body on the video in real-time
+## Table of Contents
 
-## Installation
+1. [Introduction](#introduction)
+2. [Environment Setup](#environment-setup)
+3. [How It Works](#how-it-works)
+4. [Running the Code](#running-the-code)
+5. [Future Improvements](#future-improvements)
+6. [Video Demo](#video-demo)
 
-1. Clone the repository to your local machine:
+## Introduction
+
+The **Biceps Reps Counter** processes a video of a person performing biceps exercises. It uses **Mediapipe** to detect body landmarks, and tracks the shoulder, elbow, and wrist to calculate arm angles. The system determines whether the user is in the "Up" or "Down" stage of the exercise and counts repetitions based on the angle movement.
+
+## Environment Setup
+
+To run this project, you need to have Python installed. Follow these steps:
+
+1. Clone the repository:
     ```bash
-    git clone https://github.com/yourusername/biceps-reps-counter.git
+    git clone https://github.com/mohamedelsayadd/biceps-reps-counter.git
     ```
-
 2. Install the required dependencies:
     ```bash
     pip install opencv-python mediapipe numpy
     ```
-
-3. Make sure you have a video file named `me_gym.mp4` to test the program, or modify the file path in the code to your own video.
+3. Place your workout video (`me_gym.mp4`) in the project folder or modify the video path in the code.
 
 ## How It Works
 
-The program processes a video of a person performing biceps exercises. It uses Mediapipe's Pose module to detect key landmarks on the body. The angle between the right shoulder, elbow, and wrist is calculated to determine the movement stage (Up/Down). When a full repetition (from Down to Up) is detected, the rep counter is incremented. The processed video displays:
-- Body landmarks and connections
-- The current number of reps
-- The current exercise stage (Up/Down)
-- The calculated angle of the arm
+- **Pose Detection**: Uses Mediapipe's Pose module to detect key landmarks on the body.
+- **Angle Calculation**: Tracks the shoulder, elbow, and wrist to calculate the angle of the arm.
+- **Rep Counting**: The rep counter increments when the arm moves from the "Down" position (angle > 140°) to the "Up" position (angle < 75°).
+- **Real-time Feedback**: Displays the current rep count, stage (Up/Down), and landmarks directly on the video.
 
 ## Running the Code
 
-1. Ensure your video file is loaded properly:
-    ```python
-    cap = cv2.VideoCapture("me_gym.mp4")
-    ```
-
-2. Run the main Python script to process the video and track reps:
+1. Open the terminal and run the Python script:
     ```bash
     python biceps_counter.py
     ```
+2. The processed video will display landmarks, the current rep count, and the current exercise stage.
+3. The output video will be saved as `result.avi`.
 
-3. The output video with the processed frames will be saved as `result.avi`.
-
-## Key Functions
-- **calculate_angle(a, b, c)**: This function calculates the angle between three points (shoulder, elbow, wrist) using trigonometry.
-- **Mediapipe Pose Detection**: Detects the body pose and extracts landmarks for pose estimation.
-- **OpenCV Video Processing**: Handles reading from the video, displaying frames, and writing the output video with the overlays.
+Make sure your input video is properly loaded by updating the file path if necessary.
 
 ## Future Improvements
-- Add support for multiple exercises
-- Use real-time camera feed instead of pre-recorded video
-- Improve robustness of angle detection for various body positions
 
-## Thank You
+- Support for multiple exercises beyond biceps curls.
+- Use of real-time webcam feed for rep counting.
+- Better handling of various body positions for more accurate angle detection.
+- Add graphical interface for easier use.
 
-This project was developed using Google Colab for demonstration and quick prototyping. For more details, feel free to explore the code in the Jupyter notebook.
+## Video Demo
+
+![Biceps Reps Counter](path_to_your_gif.gif)
+
